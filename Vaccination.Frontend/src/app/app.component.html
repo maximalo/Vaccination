@@ -1,0 +1,25 @@
+ <mat-toolbar color="primary" class="custom-toolbar">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <img src="../assets/images.jpeg" alt="logo" height="50px">
+      <span>Carnet de vaccination electronique</span>
+      <span class="spacer"></span>
+      <button mat-button *ngIf="!(authService.isLoggedIn$ | async)" routerLink="/register">Créer un compte</button>
+      
+      <button mat-button *ngIf="!(authService.isLoggedIn$ | async)" routerLink="/login">Se connecter</button>
+      <button mat-button *ngIf="authService.isLoggedIn$ | async" (click)="logout()">Se déconnecter</button>
+
+    </mat-toolbar>
+
+    <mat-sidenav-container>
+      <mat-sidenav #sidenav mode="side">
+        <mat-nav-list>
+          <a mat-list-item routerLink="/vaccination">Carte de vaccination</a>
+          <a mat-list-item routerLink="/profile">Mon profil</a>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>

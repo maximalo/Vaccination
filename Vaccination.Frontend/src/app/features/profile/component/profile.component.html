@@ -1,0 +1,102 @@
+<div class="profile-container">
+  <mat-card class="profile-card">
+    <mat-card-header>
+      <mat-card-title>Profil Utilisateur</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="profileForm" class="profile-form">
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              placeholder="Email"
+              formControlName="email"
+              readonly
+            />
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Prénom</mat-label>
+            <input matInput placeholder="Prénom" formControlName="firstName" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Nom</mat-label>
+            <input matInput placeholder="Nom" formControlName="lastName" />
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Numéro de sécurité sociale</mat-label>
+            <input
+              matInput
+              placeholder="Numéro de sécurité sociale"
+              formControlName="socialSecurityNumber"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Date de naissance</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              placeholder="Date de naissance"
+              formControlName="dateOfBirth"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Ville</mat-label>
+            <input matInput placeholder="Ville" formControlName="city" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Nationalité</mat-label>
+            <input
+              matInput
+              placeholder="Nationalité"
+              formControlName="nationality"
+            />
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Adresse</mat-label>
+            <input matInput placeholder="Adresse" formControlName="address" />
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Code postal</mat-label>
+            <input
+              matInput
+              placeholder="Code postal"
+              formControlName="postalCode"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Numéro de téléphone</mat-label>
+            <input
+              matInput
+              placeholder="Numéro de téléphone"
+              formControlName="phoneNumber"
+            />
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="saveProfile()">
+        Enregistrer les modifications
+      </button>
+      <button mat-raised-button color="warn" (click)="confirmDeleteAccount()">
+        Supprimer le compte
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

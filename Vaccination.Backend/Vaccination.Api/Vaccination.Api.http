@@ -1,0 +1,74 @@
+@Vaccination.Api_HostAddress = https://localhost:7128
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhYmNAYWFhLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiYWI3MTQzZjMtOGJiYS00Mzg4LWI2YWItODAwZGM5OTY1NGEyIiwiSldUSUQiOiJkY2Y2YWFkMi1iOGI3LTQ3ZmUtOTJlNy0xN2NiODM0ZjBjZTMiLCJGaXJzdE5hbWUiOiJOZXciLCJMYXN0TmFtZSI6IlVzZXIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiREVMRVRFIiwiV1JJVEUiLCJSRUFEIiwiVVNFUiJdLCJleHAiOjE3MjcyODgzNjAsImlzcyI6ImxvY2FsaG9zdCIsImF1ZCI6ImxvY2FsaG9zdCJ9.lJAvDqbGhWC6wp_FYOusJW8TpI3HA2gV0JSWq3euXpw
+
+### Login to get token
+POST {{Vaccination.Api_HostAddress}}/Auth/Login
+Content-Type: application/json
+
+{
+  "Email": "olivier",
+  "Password": "SecurePassword123!"
+}
+
+### Register an account
+POST {{Vaccination.Api_HostAddress}}/Auth/Register
+Content-Type: application/json
+
+{
+  "Email": "abc@aaa.com",
+  "Password": "SecurePassword123!",
+  "FirstName": "New",
+  "LastName": "User"
+}
+
+###
+
+### Get User Details
+GET {{Vaccination.Api_HostAddress}}/User/GetByEmail?Email=olivier@wandestrick.com
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### Update User to Admin
+POST {{Vaccination.Api_HostAddress}}/User/SetToAdmin
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "Email": "user@example.com"
+}
+
+###
+
+### Update User Details
+PUT {{Vaccination.Api_HostAddress}}/User/Update
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "Id": "user-id",
+  "FirstName": "John",
+  "LastName": "Doe",
+  "Email": "john.doe@example.com",
+  "SocialSecurityNumber": "123-45-6789",
+  "DateOfBirth": "1990-01-01",
+  "City": "CityName",
+  "Nationality": "Nationality",
+  "Address": "123 Main St",
+  "PostalCode": "12345",
+  "PhoneNumber": "123-456-7890"
+}
+
+###
+
+### Delete User Account
+DELETE {{Vaccination.Api_HostAddress}}/User/Delete
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "Email": "user@example.com"
+}
+
+###

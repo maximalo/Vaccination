@@ -1,0 +1,12 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 64px);
+}
+
+.custom-toolbar {
+ background-color: #b22222;  /* Pale red color */
+  color: black;
+}
